@@ -22,6 +22,7 @@
                     @enderror
                 </div>
                 <h5 class="mt-2">Your token: <span class='alert-token'> {{ $varForRender['token'] }} </span></h5>
+
                 <input id="token" type="hidden" name="token"
                     value="{{ $varForRender['token'] }}" required>
 
