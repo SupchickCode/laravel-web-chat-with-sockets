@@ -2,12 +2,21 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\MessageSent;
+use App\Models\Message;
 use Illuminate\Http\Request;
 use Cookie;
 use phpDocumentor\Reflection\PseudoTypes\True_;
 
 class ChatController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware("auth");
+    }
+
+
     public function index()
     {
         $varForRender = [
@@ -18,6 +27,32 @@ class ChatController extends Controller
     }
 
 
+    public function chats()
+    {
+        $varForRender = [
+            'title' => 'Start Chat'
+        ];
+
+        return view("tmp.chat", compact('varForRender'));
+    }
+
+
+    public function fetchMessages()
+    {   
+        return Message::with('user')->get();
+    }
+
+
+    public function sendMessage(Request $request)
+    {   
+        $message = auth()->user()->messages()->create([
+            'message' => $request->message
+        ]);
+        
+        broadcast(new MessageSent($message->load('user')))->toOthers();
+
+        return ['status' => 'success'];
+    }
     /**
      * This method gets `$token` and return view.
      * If `$token` alredy exists return redirect to '/' with flash message
@@ -32,7 +67,7 @@ class ChatController extends Controller
 
             return redirect('/');
         } else {
-            $token = $this->createToken(); 
+            $token = $this->createToken();
             CookieController::setCookie("token", $token, 30);
         }
 
@@ -71,7 +106,7 @@ class ChatController extends Controller
     }
 
 
-     /**
+    /**
      * Create a random Token
      * 
      * @return string

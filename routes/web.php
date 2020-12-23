@@ -21,6 +21,16 @@ Route::get('/chat', function () {
     
     return view('welcome');
 });
+
+Route::get('/chats', [ChatController::class, "chats"]);
+Route::get('/messages', [ChatController::class, "fetchMessages"]);
+Route::post('/messages', [ChatController::class, "sendMessage"]);
+
+
 Route::get('/', [ChatController::class, "index"]);
 Route::post('/getToken', [ChatController::class, "getToken"])->name("getToken");
 Route::get('/findToken', [ChatController::class, "findToken"])->name("findToken");
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

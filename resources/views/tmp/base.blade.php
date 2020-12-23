@@ -13,7 +13,7 @@
         integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
     {{-- ADD CSS --}}
     <link rel="stylesheet" type="text/css" href="{{ URL::asset('static/css/style.css') }}">
-
+   
     <title>@yield('title')</title>
 </head>
 
@@ -27,12 +27,15 @@
         @endif
         
         @yield('content')
+        @yield ('chat')
     </div>
 
     <!-- ADD AJAX-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <!-- ADD JS -->
     <script rel="stylesheet" src="{{ URL::asset('static/js/ajax.js') }}"></script>
+    <!-- ADD APP.JS -->
+    <script src=" {{ URL::asset('js/app.js') }} "></script>
 </body>
 
 </html>
