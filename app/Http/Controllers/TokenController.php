@@ -5,7 +5,35 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 class TokenController extends Controller
-{
+{   
+    /**
+     * This method gets `$token` and return view.
+     * 
+     * @return view
+     */
+    public function getToken()
+    {
+        $token = $this->createToken();
+        
+        $varForRender = [
+            'title' => "Your Token - $token",
+            "token" => $token
+        ];
+
+        return view("tmp.getToken", compact('varForRender'));
+    }
+
+
+    public function findToken()
+    {
+        $varForRender = [
+            'title' => "Find Friends",
+        ];
+
+        return view("tmp.findToken", compact('varForRender'));
+    }
+
+
      /**
      * Create a random Token
      * 

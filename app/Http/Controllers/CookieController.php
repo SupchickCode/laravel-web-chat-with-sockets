@@ -24,4 +24,19 @@ class CookieController extends Controller
             return false;
         }
     }
+
+    
+    /**
+     * Check for already exist token in browser cookies store
+     * 
+     * @return string
+     */
+    private function alreadyExistToken(): string
+    {
+        if ($token = CookieController::getCookie('token')) {
+            return $token;
+        } else {
+            return false;
+        }
+    }
 }

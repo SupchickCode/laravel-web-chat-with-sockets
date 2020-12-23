@@ -2,8 +2,9 @@
 
 use App\Events\WebSocketChat;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers;
 use App\Http\Controllers\ChatController;
+use App\Http\Controllers\PageViewController;
+use App\Http\Controllers\TokenController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,18 +19,19 @@ use App\Http\Controllers\ChatController;
 
 Route::get('/chat', function () {
     broadcast(new WebSocketChat('message'));
-    
     return view('welcome');
 });
+
+Route::get('/', [PageViewController::class, "index"]);
 
 Route::get('/chats', [ChatController::class, "chats"]);
 Route::get('/messages', [ChatController::class, "fetchMessages"]);
 Route::post('/messages', [ChatController::class, "sendMessage"]);
 
 
-Route::get('/', [ChatController::class, "index"]);
-Route::post('/getToken', [ChatController::class, "getToken"])->name("getToken");
-Route::get('/findToken', [ChatController::class, "findToken"])->name("findToken");
+
+Route::post('/getToken', [TokenController::class, "getToken"])->name("getToken");
+Route::get('/findToken', [TokenController::class, "findToken"])->name("findToken");
 
 Auth::routes();
 
