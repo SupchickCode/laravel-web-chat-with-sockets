@@ -18,8 +18,9 @@
 </head>
 
 <body>
-   
     <div class="container">
+        @include('tmp.navbar')
+    
         @if (session()->has('message'))
             <div class="alert alert-success">
                 {{ session('message') }}

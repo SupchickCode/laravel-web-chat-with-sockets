@@ -26,7 +26,6 @@
                 <input id="token" type="hidden" name="token"
                     value="{{ $varForRender['token'] }}" required>
 
-
                 <button type="submit" class="btn btn-info mt-2 btn-lg">
                     {{ __('Create an account') }}
                 </button>
