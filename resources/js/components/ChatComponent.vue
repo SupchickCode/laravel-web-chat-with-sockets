@@ -39,12 +39,13 @@
 
 <script>
 export default {
-  
   props:["user"],
+
   data() {
     return {
       messages: [],
-      newMessage: ''
+      newMessage: '',
+      сhatroom: ''
     };
   },
   created() {
@@ -56,18 +57,22 @@ export default {
         });
   },
   methods: {
+
+
     fetchMessages() {
-      axios.get("messages").then((response) => {
+      let chatroom = document.location.pathname.substr(10)
+      axios.get(chatroom + "/messages").then((response) => {
         this.messages = response.data;
       });
     },
 
     sendMessage() {
+      let chatroom = document.location.pathname.substr(10)
         this.messages.push({
             user: this.user,
             message: this.newMessage
         })
-        axios.post("messages",{message: this.newMessage});
+        axios.post(chatroom + "/messages",{message: this.newMessage});
         this.newMessage = '';
     }
   },

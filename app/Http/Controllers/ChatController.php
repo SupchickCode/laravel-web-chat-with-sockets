@@ -6,6 +6,7 @@ use App\Events\MessageSent;
 use App\Models\Message;
 use Illuminate\Http\Request;
 
+use App\Models\ChatRoom;
 
 class ChatController extends Controller
 {
@@ -15,27 +16,24 @@ class ChatController extends Controller
         $this->middleware("auth");
     }
 
-
-    public function chats()
-    {
-        $varForRender = [
-            'title' => 'Start Chat'
-        ];
-
-        return view("tmp.chat", compact('varForRender'));
-    }
-
-
+    
     public function fetchMessages()
-    {
-        return Message::with('user')->get();
+    {   
+        $chatroom = ChatRoom::where('chatroom','=',request('chatroom'))->firstOrFail();
+        $chatroom_id = $chatroom['id'];
+    
+        return Message::with('user')->where('chatroom_id', $chatroom_id)->get();
     }
 
 
     public function sendMessage(Request $request)
-    {
+    {   
+        $chatroom = ChatRoom::where('chatroom','=',request('chatroom'))->firstOrFail();
+        $chatroom_id = $chatroom['id'];
+        
         $message = auth()->user()->messages()->create([
-            'message' => $request->message
+            'message' => $request->message,
+            'chatroom_id' => $chatroom_id
         ]);
 
         broadcast(new MessageSent($message->load('user')))->toOthers();
