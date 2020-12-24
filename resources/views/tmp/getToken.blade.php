@@ -4,7 +4,7 @@
 
 @section('content')
     <div class="parent">
-        <div class="block_form">
+        <div class="center-block>
             <p><a href="/">← back</a></p>
             <h3>You are almost ready to <br>share your key with friend</h3><br>
 

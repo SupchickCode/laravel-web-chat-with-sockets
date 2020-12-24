@@ -7,7 +7,12 @@ use Illuminate\Http\Request;
 class TokenController extends Controller
 {   
     /**
-     * This method gets `$token` and return view.
+     * This method gets `$token` and return `register-form`,
+     * where user should input `name` and submit form.'
+     * 
+     * It creates new user with `name` and `token` fields 
+     * 
+     * from action="/register"
      * 
      * @return view
      */

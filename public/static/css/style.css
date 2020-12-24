@@ -17,7 +17,7 @@ body {
     overflow: auto;
 }
 
-.block_form {
+.center-block {
     max-width: 650px;
     max-height: 200px;
     position: absolute;
