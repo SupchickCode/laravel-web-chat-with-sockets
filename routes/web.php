@@ -21,11 +21,6 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-Route::get('/chat', function () {
-    broadcast(new WebSocketChat('message'));
-    return view('welcome');
-});
-
 Route::get('/', [PageViewController::class, "index"]);
 
 Route::get('/chats', [ChatController::class, "chats"]);
