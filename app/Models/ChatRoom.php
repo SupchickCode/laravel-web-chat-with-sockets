@@ -14,7 +14,7 @@ class ChatRoom extends Model
      *
      * @var array
      */
-    protected $fillable = ['chatroom'];
+    protected $fillable = ['chatroom','password'];
 
     public function user()
     {

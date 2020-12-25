@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\ChatRoom;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,14 @@ class HomeController extends Controller
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function index()
-    {
-        return view('home');
+    {   
+        $chatrooms = ChatRoom::where('user_id',auth()->user()->id)->get();
+
+        $var_for_render = [
+            'title' => 'Home Page',
+            'chatrooms' => $chatrooms
+        ];
+
+        return view('home',compact('var_for_render'));
     }
 }

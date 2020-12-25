@@ -10,6 +10,7 @@ use App\Http\Controllers\ChatRoomController;
 
 use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\Auth\RegisterController;
+use App\Models\ChatRoom;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,6 +29,8 @@ Route::get('/chatroom/{chatroom}',[ChatRoomController::class ,"chatroom"]);
 
 Route::get('/chatroom/{chatroom}/messages', [ChatController::class, "fetchMessages"]);
 Route::post('/chatroom/{chatroom}/messages', [ChatController::class, "sendMessage"]);
+
+Route::post('/create_new_chatroom',[ChatRoomController::class, "create_chatroom"])->name("create_chatroom");
 
 # CUSTOM AUTH ROUTES
 Route::post('/getToken', [TokenController::class, "getToken"])->name("getToken");
