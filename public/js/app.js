@@ -1936,17 +1936,6 @@ __webpack_require__.r(__webpack_exports__);
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   props: ["user"],
   data: function data() {
@@ -43698,7 +43687,7 @@ var render = function() {
   var _c = _vm._self._c || _h
   return _c("div", { staticClass: "container" }, [
     _c("div", { staticClass: "row" }, [
-      _c("div", { staticClass: "col-8" }, [
+      _c("div", { staticClass: "col mt-5" }, [
         _c("div", { staticClass: "card card-default" }, [
           _c("div", { staticClass: "card-header" }, [_vm._v("Messages")]),
           _vm._v(" "),
@@ -43757,31 +43746,12 @@ var render = function() {
               }
             }
           })
-        ]),
-        _vm._v(" "),
-        _c("span", { staticClass: "text-muted" }, [_vm._v("User is typing...")])
-      ]),
-      _vm._v(" "),
-      _vm._m(0)
-    ])
-  ])
-}
-var staticRenderFns = [
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c("div", { staticClass: "col-4" }, [
-      _c("div", { staticClass: "card card-default" }, [
-        _c("div", { staticClass: "card-header" }, [_vm._v("Active user")]),
-        _vm._v(" "),
-        _c("div", { staticClass: "car-body" }, [
-          _c("ul", [_c("li", { staticClass: "py-2" }, [_vm._v("User name")])])
         ])
       ])
     ])
-  }
-]
+  ])
+}
+var staticRenderFns = []
 render._withStripped = true
 
 

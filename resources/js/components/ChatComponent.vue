@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <div class="row">
-      <div class="col-8">
+      <div class="col mt-5">
         <div class="card card-default">
           <div class="card-header">Messages</div>
           <div class="car-body p-0">
@@ -20,17 +20,6 @@
             class="form-control"
             placeholder="Enter your message"
           />
-        </div>
-        <span class="text-muted">User is typing...</span>
-      </div>
-      <div class="col-4">
-        <div class="card card-default">
-          <div class="card-header">Active user</div>
-          <div class="car-body">
-            <ul>
-              <li class="py-2">User name</li>
-            </ul>
-          </div>
         </div>
       </div>
     </div>
