@@ -23,15 +23,6 @@ use App\Http\Controllers\Auth\RegisterController;
 |
 */
 
-#TODO
-/**
- * Написать документацию ~70%
- * Написать поиск по имени и имени чат канала ~70%
- * Удалять канал и все сообщения DONE
- * Проверка пароля при входе в чат (через модальное окно)
- * Скрины и формить для портфолио
- * DOCKER ?
- */
 Route::get('/', [PageViewController::class, "index"]);
 
 Route::get('/chatroom/{chatroom}',[ChatRoomController::class ,"chatroom"]);

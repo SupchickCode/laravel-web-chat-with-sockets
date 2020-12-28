@@ -18,20 +18,27 @@ class SearchController extends Controller
         return view("tmp.findToken", compact('varForRender'));
     }
 
-
+    /**
+     * Methods searchs in the db and retrun view with link for chatroom if it exists 
+     * or redirect back with flash message
+     * 
+     * @return view 
+     * @return redirect
+     */
     public function search_by_chatroom_and_name()
-    {           
+    {
         $search_value = request('input');
-
-        $user = User::where('name', $search_value)->get();
         $chatroom = ChatRoom::where('chatroom', $search_value)->get();
 
-        $varForRender = [
-            'title' => "Chatroom",
-            'user' => $user,
-            'chatroom' => $chatroom
-        ];
+        if (!empty($chatroom[0])) {
+            $varForRender = [
+                'title' => "Chatroom",
+                'chatroom' => $chatroom[0]
+            ];
 
-        return view('tmp.search_output',compact('varForRender'));
+            return view('tmp.search_output', compact('varForRender'));
+        }
+
+        return redirect()->back()->with('message', "We didn't find chatroom with this name `$search_value`");
     }
 }

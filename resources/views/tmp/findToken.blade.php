@@ -11,7 +11,7 @@
                 <input type="text" id="input" name="input" class="form-control" aria-describedby="help_info">
                 <button type="submit" class="mt-2 btn btn-info btn">Find</button>
                 <div id="help_info" class="form-text">
-                    *Try to find your friend with name<br>*Find chatroom with name;
+                    *Try to find chatroom with name;
                 </div>
             </form>
         </div>
