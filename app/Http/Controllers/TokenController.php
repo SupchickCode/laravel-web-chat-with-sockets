@@ -8,7 +8,7 @@ class TokenController extends Controller
 {   
     /**
      * This method gets `$token` and return `register-form`,
-     * where user should input `name` and submit form.'
+     * where user should input `name` and submit form
      * 
      * It creates new user with `name` and `token` fields 
      * 
@@ -27,18 +27,7 @@ class TokenController extends Controller
 
         return view("tmp.getToken", compact('varForRender'));
     }
-
-
-    public function findToken()
-    {
-        $varForRender = [
-            'title' => "Find Friends",
-        ];
-
-        return view("tmp.findToken", compact('varForRender'));
-    }
-
-
+    
      /**
      * Create a random Token
      * 

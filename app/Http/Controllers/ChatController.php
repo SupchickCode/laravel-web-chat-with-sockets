@@ -16,7 +16,11 @@ class ChatController extends Controller
         $this->middleware("auth");
     }
 
-
+    /**
+     * Return all messages that belongs for `user` and current chatroom
+     * 
+     * @return array
+     */
     public function fetchMessages()
     {
         $chatroom_id = $this->get_chartroom_id();
@@ -24,10 +28,16 @@ class ChatController extends Controller
         return Message::with('user')->where('chatroom_id', $chatroom_id)->get();
     }
 
-
+    /**
+     * Insert `message` in to DB, and send it to the client side 
+     * with method `broadcast`
+     * 
+     * @param Request
+     * 
+     * @return json
+     */
     public function sendMessage(Request $request)
     {
-
         $chatroom_id = $this->get_chartroom_id();
 
         $message = auth()->user()->messages()->create([
@@ -40,8 +50,12 @@ class ChatController extends Controller
         return ['status' => 'success'];
     }
 
-    
-    protected function get_chartroom_id()
+    /**
+     * Get chatroom with `request('chatroom')` and return chatroom_id
+     * 
+     * @return int 
+     */
+    protected function get_chartroom_id(): int
     {
         $chatroom = ChatRoom::where('chatroom', '=', request('chatroom'))->firstOrFail();
 

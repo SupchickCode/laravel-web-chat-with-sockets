@@ -19,8 +19,7 @@
 
 <body>
     <div class="container">
-        @include('tmp.navbar')
-    
+
         @if (session()->has('message'))
             <div class="alert alert-success">
                 {{ session('message') }}
@@ -31,6 +30,8 @@
         @yield ('chat')
     </div>
     
+    <!-- JavaScript Bundle with Popper.js -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/js/bootstrap.bundle.min.js" integrity="sha384-BOsAfwzjNJHrJ8cZidOg56tcQWfp6y72vEJ8xQ9w6Quywb24iOsW913URv1IS4GD" crossorigin="anonymous"></script>
     <!-- ADD AJAX-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
     <!-- ADD JS -->

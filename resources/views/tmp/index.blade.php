@@ -10,7 +10,7 @@
                 <h3>Welcome, User.<br>if you want to start press button</h3>
                 <br>
                 <button type="submit" class="btn btn-success btn-lg">Get your token</button>
-                <a href="{{ route('findToken') }}" class="btn btn-info btn-lg">Find your friends</a>
+                <a href="{{ route('search') }}" class="btn btn-info btn-lg">Find your friends</a>
                 <a href="{{ route('login') }}">
                     <p class="mt-4 fw-light">Already have a secret token ?</p>
                 </a>

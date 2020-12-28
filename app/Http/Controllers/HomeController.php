@@ -20,9 +20,9 @@ class HomeController extends Controller
     }
 
     /**
-     * Show the application dashboard.
+     * Show homepage of user 
      *
-     * @return \Illuminate\Contracts\Support\Renderable
+     * @return view
      */
     public function index()
     {   

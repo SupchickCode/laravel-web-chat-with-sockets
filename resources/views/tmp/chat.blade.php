@@ -8,4 +8,6 @@
 
 @section('chat')
     <chat :user={{ auth()->user() }} id="app"></chat>
+
+    
 @endsection

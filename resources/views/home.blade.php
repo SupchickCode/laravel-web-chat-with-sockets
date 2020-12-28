@@ -55,7 +55,7 @@
             <ul class="list-group">
                 @forelse ($var_for_render['chatrooms'] as $room)
                     <li class="list-group-item"><a href="/chatroom/{{ $room->chatroom }}">{{ $room->chatroom }}</a>
-                        <a class="ml-auto p-3" href="/chatroom/remove/{{ $room->chatroom }}">&#10006;</a>
+                        <a class="ml-auto p-3" href="/chatroom/remove/{{ $room->id }}">&#10006;</a>
                     </li>
                 @empty
                     <li class="list-group-item"><a href="#">You don't have any rooms =*(</a></li>
