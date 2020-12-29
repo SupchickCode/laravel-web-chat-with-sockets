@@ -6,7 +6,7 @@ and start chat with each other.
 
 
 # Install
-- git clone 
+- git clone https://github.com/SupchickCode/laravel-web-chat-with-sockets.git
 - composer install
 - change database rules in .Env
 - php artisan migrate 
