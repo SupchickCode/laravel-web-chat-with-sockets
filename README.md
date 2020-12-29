@@ -5,7 +5,7 @@ In this app you can create a private chatroom for each user
 and start chat with each other.
 
 This app use:
-- larave
+- laravel
 - mysql
 - websockets;
 - pusher-js;
